@@ -56,13 +56,12 @@ class ScheduelController extends Controller
 
         $validator = \Validator::make($request->all(), 
             [
-            'require' => 'required|unique:content_group_scheduel,require,'.$request->require.',require|min:3',
+            'require' => 'required|unique:content_group_scheduel,require,'.$request->require.',require',
             'descript' => 'required|min:3',
             'deadline' => 'required'
             ], 
             [
             'require.required' => 'Bạn chưa nhập Mã tài liệu',
-            'require.min' => 'Mã tài liệu có độ dài từ 3 kí tự trở nên',
 
             'descript.required' => 'Bạn chưa nhập Nội dung mô tả yêu cầu',
             'descript.min' => 'Nội dung mô tả yêu cầu cần có độ dài từ 3 kí tự trở nên',
@@ -232,14 +231,35 @@ class ScheduelController extends Controller
     }
 
     public function postUpdateScheduelContent(Request $request, $id_group, $id_content) {
-        $content = ContentGroupScheduel::find($id_content); 
-        $content->time_deadline = $request->time_deadline;
-        $content->require = $request->require;
-        $content->descript = $request->descript;
-        $content->penalty = $request->penalty;
-        $content->save();
+        $validator = \Validator::make($request->all(), 
+            [
+            'require' => 'required|unique:content_group_scheduel,require,'.$request->require.',require',
+            'descript' => 'required|min:3',
+            'time_deadline' => 'required',
+            'penalty' =>  'required'
+            ], 
+            [
+            'require.required' => 'Bạn chưa nhập Mã tài liệu',
 
-        return redirect('teacher/project/'.$id_group.'/scheduel')->with('thongbao','Bạn đã sửa thành công');
+            'descript.required' => 'Bạn chưa nhập Nội dung mô tả yêu cầu',
+            'descript.min' => 'Nội dung mô tả yêu cầu cần có độ dài từ 3 kí tự trở nên',
+
+            'time_deadline.required' => 'Bạn chưa nhập thời hạn nộp ',
+            'penalty.required' => 'Bạn chưa nhập điểm trừ'
+            ]
+        );
+        if ($validator->fails()) {
+            return redirect('teacher/project/'.$id_group.'/scheduel/update/'.$id_content)->with('errors', $validator->errors());
+        } else {
+            $content = ContentGroupScheduel::find($id_content); 
+            $content->time_deadline = $request->time_deadline;
+            $content->require = $request->require;
+            $content->descript = $request->descript;
+            $content->penalty = $request->penalty;
+            $content->save();
+
+            return redirect('teacher/project/'.$id_group.'/scheduel')->with('thongbao','Bạn đã sửa thành công');
+        }
     }
 
     

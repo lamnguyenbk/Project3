@@ -7,7 +7,7 @@
             <div class="col-lg-12">
                 <h3 class="page-header"><i class="fa fa fa-bars"></i>Website hỗ trợ quản lí đồ án </h3>
                 <ol class="breadcrumb">
-                    <li><i class="fa fa-home"></i><a href="">Trang chủ/Danh sách nhóm đồ án</a></li>
+                    <li><i class="fa fa-home"></i><a href="{{url()->current()}}">Trang chủ/Danh sách nhóm đồ án</a></li>
                 </ol>
             </div>
         </div>  
@@ -50,7 +50,7 @@
             <div class="col-lg-12">
                 <section class="panel">
                     <header class="panel-heading">
-                        <a href="">Danh sách các nhóm đồ án</a>
+                        <a href="{{url()->current()}}">Danh sách các nhóm đồ án</a>
                     </header>
 
                     <div class="result">

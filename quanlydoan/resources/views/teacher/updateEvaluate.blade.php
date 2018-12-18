@@ -60,6 +60,13 @@
                                             <div>
                                                 <h3><i class="glyphicon glyphicon-forward" style="padding:10px 0;"></i> Chỉnh sửa tiêu chí</h3>
                                             </div>
+                                            @if(count($errors) > 0)
+                                            <div class="alert alert-danger">
+                                                @foreach($errors->all() as $err)
+                                                {{$err}}<br>
+                                                @endforeach
+                                            </div>
+                                            @endif
                                             <div class="panel-body tab-content tab-pane">
                                                 <div class="form">
                                                     <form class="form-validate form-horizontal" id="feedback_form" method="POST"
@@ -82,13 +89,7 @@
                                                 </div>
                                             </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="panel-body tab-content tab-pane">
-                                            <h3><i class="glyphicon glyphicon-forward" style="padding:10px 0;"></i> Đánh giá tổng thể nhóm</h3> 
-                                            <h4 class="text-center">Điểm hiện tại: 5.6</h4>
-                                            <h4 class="text-center">Điểm cuối cùng 8.5</h4>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                             </section>
                         </div>

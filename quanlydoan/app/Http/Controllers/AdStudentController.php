@@ -146,13 +146,13 @@ class AdStudentController extends Controller
 					->orwhere('user.phone', 'like', '%'.$query.'%')
 					->orwhere('student.class', 'like', '%'.$query.'%');
 				})
-				->paginate(2);  
+				->paginate(5);  
 
 			}
 			else{
 				return $data = DB::table('user')
 				->join('student', 'student.username', '=', 'user.username')
-				->paginate(2);
+				->paginate(5);
 			}
 	}
 

@@ -14,7 +14,11 @@
             <td>{{$row->full_name}}</td>
             <td>{{$row->group_name}}</td>
             <td>{{$row->project_name}}</td>
-            <td>{{$row->finish_project}}</td>
+            @if($row->finish_project == 1)
+              <td>Đã hoàn thành</td>
+            @else
+              <td>Chưa hoàn thành</td>
+            @endif
             <td><a href="{{url()->current()}}/{{$row->id_group}}" class="btn btn-primary text-center">Chi tiết</a></td>
         </tr>
     @endforeach

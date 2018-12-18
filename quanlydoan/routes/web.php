@@ -53,8 +53,8 @@ Route::group(['prefix' => 'teacher'], function() {
 	// Route::get('/search', 'ProjectController@getListProject');
 	Route::group(['prefix' => 'project'], function() {
 		Route::get('/', 'ProjectController@getListProject');
-		Route::get('createGroup', 'AdGroupController@getCreateGroup');
-		Route::post('createGroup', 'AdGroupController@createGroup');
+		Route::get('createGroup', 'ProjectController@getCreateProject');
+		Route::post('createGroup', 'ProjectController@createProject');
 		
 		Route::get('/{id_group}', 'ProjectController@getProjectDetail');
 

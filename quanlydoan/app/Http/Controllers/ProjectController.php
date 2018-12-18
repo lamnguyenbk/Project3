@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Storage;
 use App\User;
 use App\Student;
 use App\GroupStudent;
@@ -16,7 +17,38 @@ use \DateTime;
 
 class ProjectController extends Controller
 {   
+     public function getCreateProject(){
+        return view('teacher.createProject');
+    }
 
+    public function createProject(Request $request){
+        $username = Auth::id();
+        $id_teacher = DB::table('teacher')->where('username', $username)->value('id_teacher');
+        $id_subject = DB::table('subject')->where('subject_name', $request->subjectname)->value('id_subject');
+        $this->validate($request,
+        [
+            'groupname' => 'required',
+            'projectname' => 'required'
+        ],
+        [
+            'groupname.required' => 'Bạn chưa nhập tên nhóm',
+            'projectname.required' => 'Bạn chưa nhập tên đồ án'
+        ]);
+
+        $group = new Group;
+        $group->id_subject = $id_subject;
+        $group->id_teacher = $id_teacher;
+        $group->group_name = $request->groupname;
+        $group->project_name = $request->projectname;
+        $group->semester = $request->semester;
+        $group->finish_project = 0;
+
+        $group->save();
+
+        Storage::makeDirectory($request->semester."/".$request->subjectname."/".$group->id_group);
+
+        return redirect(url('teacher/project/'.$group->id_group))->with('thongbao','Bạn đã thêm thành công');
+    }
     public function getListProject(Request $request)
     {   
         if($request->ajax()){

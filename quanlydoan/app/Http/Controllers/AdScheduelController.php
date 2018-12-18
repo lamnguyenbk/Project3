@@ -30,11 +30,13 @@ class AdScheduelController extends Controller
     }
 
     public function postAdAddScheduel(Request $request, $id_subject){
-        $validator = \Validator::make($request->all(), 
+        
+
+        $this->validate($request, 
             [
             'require' => 'required|unique:content_sub_scheduel,require,'.$request->require.',require|min:3',
             'descript' => 'required|min:3',
-            'deadline' => 'required'
+            'time_deadline' => 'required'
             ], 
             [
             'require.required' => 'Bạn chưa nhập Nội dung yêu cầu',
@@ -43,9 +45,8 @@ class AdScheduelController extends Controller
             'descript.required' => 'Bạn chưa nhập Nội dung mô tả yêu cầu',
             'descript.min' => 'Nội dung tiêu chí cần có độ dài từ 3 kí tự trở nên',
 
-            'deadline.required' => 'Bạn chưa nhập thời hạn nộp '
-            ]
-        );
+            'time_deadline.required' => 'Bạn chưa nhập thời hạn nộp '
+            ]);
 
         $semester = $request->semester;
 
@@ -86,11 +87,11 @@ class AdScheduelController extends Controller
     }
 
     public function postUpdateScheduelContent(Request $request, $id_subject, $id_subject_scheduel, $id_content_sub_scheduel){
-    	$validator = \Validator::make($request->all(), 
+    	$this->validate($request, 
             [
             'require' => 'required|unique:content_sub_scheduel,require,'.$request->require.',require|min:3',
             'descript' => 'required|min:3',
-            'deadline' => 'required'
+            'time_deadline' => 'required'
             ], 
             [
             'require.required' => 'Bạn chưa nhập Nội dung yêu cầu',
@@ -99,9 +100,9 @@ class AdScheduelController extends Controller
             'descript.required' => 'Bạn chưa nhập Nội dung mô tả yêu cầu',
             'descript.min' => 'Nội dung tiêu chí cần có độ dài từ 3 kí tự trở nên',
 
-            'deadline.required' => 'Bạn chưa nhập thời hạn nộp '
-            ]
-        );
+            'time_deadline.required' => 'Bạn chưa nhập thời hạn nộp '
+            ]);
+
 
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
 		$content_sub_scheduel = ContentSubjectScheduel::find($id_content_sub_scheduel);

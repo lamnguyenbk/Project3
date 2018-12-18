@@ -133,13 +133,13 @@ public function search($query){
       ->orwhere('email', 'like', '%'.$query.'%')
       ->orwhere('phone', 'like', '%'.$query.'%');
     })
-    ->paginate(2);  
+    ->paginate(5);  
 
   }
   else{
     return $data = DB::table('user')
     ->where('position', '=', '3')
-    ->paginate(2);
+    ->paginate(5);
   }
 }
 

@@ -53,7 +53,7 @@
                                            </div>
                                            <label  class="control-label col-sm-1">Trừ</label>
                                            <div class="col-sm-2">
-                                            <input class="form-control" name="penalty" value="{{$content_sub_scheduel->penalty}}" />
+                                            <input class="form-control" name="penalty" value="{{$content_sub_scheduel->penalty}}" type="number" step="0.25" min="0" max="10" />
                                         </div>
                                     </div>
                                     <div class="control-label col-sm-6 text-center">

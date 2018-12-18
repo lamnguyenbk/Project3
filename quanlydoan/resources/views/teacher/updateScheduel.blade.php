@@ -70,11 +70,6 @@
                                         </div>
                                         @endif
 
-                                        @if(session('thongbao'))
-                                        <div class="alert alert-success">
-                                            {{session('thongbao')}}
-                                        </div>
-                                        @endif
                                         <div class="form">
                                             <form class="form-validate form-horizontal" id="feedback_form" method="POST" action="{{url()->current()}}">
                                                 <input type="hidden" name="_token" value="{{csrf_token()}}" />
@@ -109,72 +104,6 @@
                                                 </div>
                                             </form>
                                         </div>
-                                    </div>
-                                    <div>
-                                        <h3><i class="glyphicon glyphicon-forward" style="padding:10px 0;"></i> Kế
-                                            hoạch thực hiện
-                                            đồ án do bộ môn đưa ra</h3>
-                                    </div>
-                                    <div class="row">
-                                        <table class="table">
-                                            <tr>
-                                                <td class="col-sm-3"><b>Nhiệm vụ</b></td>
-                                                <td class="col-sm-7"><b>Mô tả yêu cầu</b></td>
-                                                <td class="col-sm-1"><b>Deadline</b></td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <p>1. Đề xuất đề tài</p>
-                                                </td>
-                                                <td>
-                                                    <p>Các nhóm xác định đề tài và thông qua sự
-                                                        xác nhận của giáo viên hướng dẫn, tài liệu
-                                                        yêu cầu:
-                                                        báo cáo đề xuất đề tài
-                                                    </p>
-                                                </td>
-                                                <td>
-                                                    <p>21/09/2018</p>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <p>2. Phân tích yêu cầu phần mềm</p>
-                                                </td>
-                                                <td>
-                                                    <p>Các nhóm tiến hành phân tích yêu cầu phần
-                                                        mềm, hoàn thành tài liệu phân tích yêu cầu
-                                                        phần mềm</p>
-                                                </td>
-                                                <td>
-                                                    <p>20/10/2018</p>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <p>3. Thiết kê hệ thống</p>
-                                                </td>
-                                                <td>
-                                                    <p>Các nhóm tiến hành thiết kế hệ thống phần
-                                                        mềm, hoàn thành tài liệu thiết kế phần mềm</p>
-                                                </td>
-                                                <td>
-                                                    <p>20/10/2018</p>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <p>4. Kiểm thử hệ thống</p>
-                                                </td>
-                                                <td>
-                                                    <p>Các nhóm tiến hành kiểm thử hệ thống phần
-                                                        mềm, hoàn thành tài liệu kiểm thử phần mềm</p>
-                                                </td>
-                                                <td>
-                                                    <p>20/11/2018</p>
-                                                </td>
-                                            </tr>
-                                        </table>
                                     </div>
                                 </div>
                             </section>

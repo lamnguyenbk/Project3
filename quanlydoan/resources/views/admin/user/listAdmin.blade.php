@@ -7,7 +7,7 @@
             <div class="col-lg-12">
                 <h3 class="page-header"><i class="fa fa fa-bars"></i>Website hỗ trợ quản lí đồ án </h3>
                 <ol class="breadcrumb">
-                    <li><i class="fa fa-home"></i><a href="teacher.html">Trang chủ/Danh sách admin</a></li>
+                    <li><i class="fa fa-home"></i><a href="{{url()->current()}}">Trang chủ/Danh sách admin</a></li>
                 </ol>
             </div>  
         </div>
