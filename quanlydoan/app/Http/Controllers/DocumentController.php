@@ -149,7 +149,7 @@ class DocumentController extends Controller
     {  
         $document = Document::where('id_document',$id_document)->first();
         #$file_path = storage_path('') . "/" . $filename;
-        return Response::download(storage_path('/app/'.$document->path));
+        return Response::download(storage_path('app/'.$document->path));
     }
 
     
