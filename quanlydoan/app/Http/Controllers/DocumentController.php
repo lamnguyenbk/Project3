@@ -91,12 +91,12 @@ class DocumentController extends Controller
                             'extension' => Str::lower($file->getClientOriginalExtension()),
                         ],
                         [
-                            'file' => 'required|max:10240',
+                            'file' => 'required|max:51200',
                             'extension' => 'required|in: doc,docx,odt,pdf,pptx,xlsx,xls,csv,zip,rar'
                         ],
                         [
                                                       
-                            'file.max'      => 'File upload kích thước nhỏ hơn 10 MB',
+                            'file.max'      => 'File upload kích thước nhỏ hơn 50 MB',
                             'extension.in' => 'Không phải định dạng cho phép upload',
                             
                         ]

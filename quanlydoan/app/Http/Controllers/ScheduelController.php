@@ -56,12 +56,13 @@ class ScheduelController extends Controller
 
         $validator = \Validator::make($request->all(), 
             [
-            'require' => 'required|unique:content_group_scheduel,require,'.$request->require.',require',
+            'require' => 'required|regex:/(^[A-Za-z0-9]+$)+/|unique:content_group_scheduel,require,'.$request->require.',require',
             'descript' => 'required|min:3',
             'deadline' => 'required'
             ], 
             [
             'require.required' => 'Bạn chưa nhập Mã tài liệu',
+            'require.regex' => 'Mã tài liệu chỉ được nhập chữ, số',
 
             'descript.required' => 'Bạn chưa nhập Nội dung mô tả yêu cầu',
             'descript.min' => 'Nội dung mô tả yêu cầu cần có độ dài từ 3 kí tự trở nên',
@@ -233,13 +234,14 @@ class ScheduelController extends Controller
     public function postUpdateScheduelContent(Request $request, $id_group, $id_content) {
         $validator = \Validator::make($request->all(), 
             [
-            'require' => 'required|unique:content_group_scheduel,require,'.$request->require.',require',
+            'require' => 'required|regex:/(^[A-Za-z0-9]+$)+/|unique:content_group_scheduel,require,'.$request->require.',require',
             'descript' => 'required|min:3',
             'time_deadline' => 'required',
             'penalty' =>  'required'
             ], 
             [
             'require.required' => 'Bạn chưa nhập Mã tài liệu',
+            'require.regex' => 'Mã tài liệu chỉ được nhập chữ, số',
 
             'descript.required' => 'Bạn chưa nhập Nội dung mô tả yêu cầu',
             'descript.min' => 'Nội dung mô tả yêu cầu cần có độ dài từ 3 kí tự trở nên',
@@ -261,8 +263,5 @@ class ScheduelController extends Controller
             return redirect('teacher/project/'.$id_group.'/scheduel')->with('thongbao','Bạn đã sửa thành công');
         }
     }
-
-    
-
 
 }

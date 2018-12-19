@@ -34,12 +34,13 @@ class AdScheduelController extends Controller
 
         $this->validate($request, 
             [
-            'require' => 'required|unique:content_sub_scheduel,require,'.$request->require.',require|min:3',
+            'require' => 'required|regex:/(^[A-Za-z0-9]+$)+/|unique:content_sub_scheduel,require,'.$request->require.',require|min:3',
             'descript' => 'required|min:3',
             'time_deadline' => 'required'
             ], 
             [
             'require.required' => 'Bạn chưa nhập Nội dung yêu cầu',
+            'require.regex' => 'Nội dung yêu cầu chỉ được nhập chữ, số',
             'require.min' => 'Nội dung yêu cầu cần có độ dài từ 3 kí tự trở nên',
 
             'descript.required' => 'Bạn chưa nhập Nội dung mô tả yêu cầu',
@@ -89,12 +90,13 @@ class AdScheduelController extends Controller
     public function postUpdateScheduelContent(Request $request, $id_subject, $id_subject_scheduel, $id_content_sub_scheduel){
     	$this->validate($request, 
             [
-            'require' => 'required|unique:content_sub_scheduel,require,'.$request->require.',require|min:3',
+            'require' => 'required|regex:/(^[A-Za-z0-9]+$)+/|unique:content_sub_scheduel,require,'.$request->require.',require|min:3',
             'descript' => 'required|min:3',
             'time_deadline' => 'required'
             ], 
             [
             'require.required' => 'Bạn chưa nhập Nội dung yêu cầu',
+            'require.regex' => 'Nội dung yêu cầu chỉ được nhập chữ, số',
             'require.min' => 'Nội dung yêu cầu cần có độ dài từ 3 kí tự trở nên',
 
             'descript.required' => 'Bạn chưa nhập Nội dung mô tả yêu cầu',
