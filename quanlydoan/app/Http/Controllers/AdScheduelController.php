@@ -36,7 +36,8 @@ class AdScheduelController extends Controller
             [
             'require' => 'required|regex:/(^[A-Za-z0-9]+$)+/|unique:content_sub_scheduel,require,'.$request->require.',require|min:3',
             'descript' => 'required|min:3',
-            'time_deadline' => 'required'
+            'time_deadline' => 'required',
+            'penalty' => 'required|numeric|between:0,10'
             ], 
             [
             'require.required' => 'Bạn chưa nhập Mã Tài Liệu',
@@ -46,7 +47,9 @@ class AdScheduelController extends Controller
             'descript.required' => 'Bạn chưa nhập Nội dung mô tả yêu cầu',
             'descript.min' => 'Nội dung tiêu chí cần có độ dài từ 3 kí tự trở nên',
 
-            'time_deadline.required' => 'Bạn chưa nhập thời hạn nộp '
+            'time_deadline.required' => 'Bạn chưa nhập thời hạn nộp ',
+            'penalty.required' => 'Bạn cần nhập điểm phạt',
+            'penalty.between' => 'Bạn cần nhập điểm trong khoảng 0 đến 10 điểm'
             ]);
 
         $semester = $request->semester;
@@ -92,7 +95,8 @@ class AdScheduelController extends Controller
             [
             'require' => 'required|regex:/(^[A-Za-z0-9]+$)+/|unique:content_sub_scheduel,require,'.$request->require.',require|min:3',
             'descript' => 'required|min:3',
-            'time_deadline' => 'required'
+            'time_deadline' => 'required',
+            'penalty' => 'required|numeric|between:0,10'
             ], 
             [
             'require.required' => 'Bạn chưa nhập Mã Tài Liệu',
@@ -102,7 +106,9 @@ class AdScheduelController extends Controller
             'descript.required' => 'Bạn chưa nhập Nội dung mô tả yêu cầu',
             'descript.min' => 'Nội dung tiêu chí cần có độ dài từ 3 kí tự trở nên',
 
-            'time_deadline.required' => 'Bạn chưa nhập thời hạn nộp '
+            'time_deadline.required' => 'Bạn chưa nhập thời hạn nộp ',
+            'penalty.required' => 'Bạn cần nhập điểm phạt',
+            'penalty.between' => 'Bạn cần nhập điểm trong khoảng 0 đến 10 điểm'
             ]);
 
 
