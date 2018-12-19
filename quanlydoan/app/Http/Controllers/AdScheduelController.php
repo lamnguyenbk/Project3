@@ -39,9 +39,9 @@ class AdScheduelController extends Controller
             'time_deadline' => 'required'
             ], 
             [
-            'require.required' => 'Bạn chưa nhập Nội dung yêu cầu',
-            'require.regex' => 'Nội dung yêu cầu chỉ được nhập chữ, số',
-            'require.min' => 'Nội dung yêu cầu cần có độ dài từ 3 kí tự trở nên',
+            'require.required' => 'Bạn chưa nhập Mã Tài Liệu',
+            'require.regex' => 'Mã Tài Liệu chỉ được nhập chữ, số',
+            'require.min' => 'Mã Tài Liệu cần có độ dài từ 3 kí tự trở nên',
 
             'descript.required' => 'Bạn chưa nhập Nội dung mô tả yêu cầu',
             'descript.min' => 'Nội dung tiêu chí cần có độ dài từ 3 kí tự trở nên',
@@ -95,9 +95,9 @@ class AdScheduelController extends Controller
             'time_deadline' => 'required'
             ], 
             [
-            'require.required' => 'Bạn chưa nhập Nội dung yêu cầu',
-            'require.regex' => 'Nội dung yêu cầu chỉ được nhập chữ, số',
-            'require.min' => 'Nội dung yêu cầu cần có độ dài từ 3 kí tự trở nên',
+            'require.required' => 'Bạn chưa nhập Mã Tài Liệu',
+            'require.regex' => 'Mã Tài Liệu chỉ được nhập chữ, số',
+            'require.min' => 'Mã Tài Liệu cần có độ dài từ 3 kí tự trở nên',
 
             'descript.required' => 'Bạn chưa nhập Nội dung mô tả yêu cầu',
             'descript.min' => 'Nội dung tiêu chí cần có độ dài từ 3 kí tự trở nên',
